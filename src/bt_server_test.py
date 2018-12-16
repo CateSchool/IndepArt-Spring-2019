@@ -1,10 +1,12 @@
 from bluetooth import *
 
 server_sock=BluetoothSocket( RFCOMM )
+print("Server socket succesfully created.")
 server_sock.bind(("", 3))
 server_sock.listen(1)
+print("Socket bound and listening.")
 
-client_socket, address = server_socket.accept()
+client_sock, address = server_sock.accept()
 print("Found client @%s" % address)
 print("Getting data...")
 
