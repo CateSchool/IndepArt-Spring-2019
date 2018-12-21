@@ -1,0 +1,9 @@
+#Headers
+WAIT = 0x00
+PRINT = 0x01
+TEST1 = 0x02
+TEST2 = 0x03
+END = 0xFF
+
+#midi
+M_CONTROL = 0b1011
