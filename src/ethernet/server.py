@@ -4,7 +4,7 @@ from constants import *
 server_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_sock.bind(("", 19079))
 
-server_sock.listen(1)
+server_sock.listen(5)
 print("Server bound and listening @ %s:%s" % (server_sock.getsockname()))
 
 while True:

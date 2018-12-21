@@ -12,6 +12,6 @@ print("Connected")
 while True:
     data = input()
     if not data: break
-    client_sock.send(data.encode('utf-8'))
+    client_sock.sendall(data.encode('utf-8'))
 print("Finished")
 client_sock.close()
