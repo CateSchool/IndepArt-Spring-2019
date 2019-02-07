@@ -7,3 +7,7 @@ END = 0xFF
 
 #midi
 M_CONTROL = 0b1011
+
+#Ip adresses
+RASPI_ADDR = '169.254.126.59'
+JJP_ADDR = '169.254.39.156'
