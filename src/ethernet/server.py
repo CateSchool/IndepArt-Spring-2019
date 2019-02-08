@@ -9,7 +9,7 @@ print("Server bound and listening @ %s:%s" % (server_sock.getsockname()))
 client_sock, address = server_sock.accept()
 while True:
     raw = client_sock.recv(4096)
-    if not raw: break
+    if len(raw) == 0: break
     print(raw.decode('utf-8'))
 
 print("Closing...")

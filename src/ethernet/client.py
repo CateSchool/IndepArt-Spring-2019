@@ -3,7 +3,7 @@ import sys
 
 client_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print("Made socket.")
-client_sock.connect((socket.gethostname(), 19079))
+client_sock.connect((sys.argv[1], 19079))
 print("Connected")
 
 while True:
