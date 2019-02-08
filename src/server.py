@@ -10,7 +10,7 @@ client_sock, address = server_sock.accept()
 while True:
     raw = client_sock.recv(1)
     if len(raw) == 0: break
-    print(raw)
+    print("Midi data recieved", raw)
 
 print("Closing...")
 server_sock.close()
