@@ -10,7 +10,7 @@ client_sock, address = server_sock.accept()
 while True:
     raw = client_sock.recv(4096)
     if len(raw) == 0: break
-    print(raw.decode('utf-8'))
+    print(raw)
 
 print("Closing...")
 server_sock.close()
