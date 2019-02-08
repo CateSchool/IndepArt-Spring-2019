@@ -28,4 +28,3 @@ try:
 except KeyboardInterrupt:
 	print("Exiting...")
 	GPIO.cleanup()
-
