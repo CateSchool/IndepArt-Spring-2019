@@ -1,7 +1,4 @@
 import socket
-from constants import *
-import encode
-
 import sys
 
 client_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
