@@ -16,6 +16,4 @@ def get_gpio():
     result = 0
     for c, pin_id in enumerate(data_pin_ids):
         result |= GPIO.input(pin_id) << c
-    print("Sending", bin(result))
-    result = result.to_bytes(1, 'little')
     return result

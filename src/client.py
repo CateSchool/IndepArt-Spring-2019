@@ -14,7 +14,10 @@ client_sock.connect((sys.argv[1], 19079))
 print("Connected")
 
 while True:
-    client_sock.sendall(get_gpio())
+    gpio = get_gpio()
+    print(bin(gpio))
+    gpio = gpio.to_bytes(1, 'little')
+    client_sock.sendall(gpio)
     time.sleep(0.05) #20ms delay is fine by me.
 
 print("Finished")
