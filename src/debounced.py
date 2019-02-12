@@ -12,7 +12,7 @@ class Debounced:
         self.can_send = True # if it wasn't pressed recently
 
     def __bool__(self): #bc why waste characters?
-        if this.wait > 0: return false
+        if self.wait > 0: return false
 
         if GPIO.input(self.pin_id):
             self.wait = self.default_wait # Reset counter
