@@ -10,7 +10,7 @@ client_sock, address = server_sock.accept()
 while True:
     raw = client_sock.recv(1)
     if len(raw) == 0: break
-    print("Midi data recieved",  bin(int(raw.hex(), 8))
+    print("Midi data recieved",  bin(int(raw.hex(), 8)))
 
 print("Closing...")
 server_sock.close()
