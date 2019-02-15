@@ -3,7 +3,7 @@
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 
-data_pin_ids = [23, 24, 25, 12, 16, 20, 21]
+data_pin_ids = [23, 24, 25, 12, 16, 20, 21, 26]
 for pin in data_pin_ids:
     GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) #data!
 
