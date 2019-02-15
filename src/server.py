@@ -13,7 +13,7 @@ while True:
         raw = int.from_bytes(client_sock.recv(2), byteorder='little')
         if raw == 0: break
 
-        readable = bin(raw)[2:]
+        readable = bin(raw)[2:].rjust(16, '0')
         print("Recieved: {:0>8} | {:0>8}".format(readable[:7], readable[8:]))
 
     except KeyboardInterrupt:
