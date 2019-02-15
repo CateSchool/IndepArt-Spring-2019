@@ -8,11 +8,14 @@ print("Server bound and listening @ %s:%s" % (server_sock.getsockname()))
 
 client_sock, address = server_sock.accept()
 while True:
-    raw = int.from_bytes(client_sock.recv(2), byteorder='little')
-    if raw == 0: break
+    try:
+        raw = int.from_bytes(client_sock.recv(2), byteorder='little')
+        if raw == 0: break
 
-    readable = bin(raw)[2:]
-    print("Recieved: ", readable[:7], "|", readable[8:])
+        readable = bin(raw)[2:]
+        print("Recieved: {:0>8} | {:0>8}".format(readable[:7], readable[8:]))
+        
+    except KeyboardInterrupt:
+        print("Closing...")
+        server_sock.close()
 
-print("Closing...")
-server_sock.close()
