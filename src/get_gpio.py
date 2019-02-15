@@ -12,9 +12,13 @@ for pin in data_pin_ids:
 # The first byte is for the digital pins. The first bit is always 1, so there's no
 # null character to shut down the server.
 # The second byte is for analog potentiometer.
-# For now, it's a user input in the console.
+# For now, it's a saw wave.
+
+saw = 0
 def get_gpio():
-    analog_pot = int(input()) # For now
+    saw += 1
+    if saw < 255: saw = 0
+    analog_pot = saw # For now
 
     digital_pins = 0
     for pin_id in data_pin_ids:
