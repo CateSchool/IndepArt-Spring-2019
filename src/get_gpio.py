@@ -3,7 +3,6 @@
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 
-GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) #trigger pin
 data_pin_ids = [23, 24, 25, 12, 16, 20, 21]
 for pin in data_pin_ids:
     GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) #data!
@@ -13,7 +12,10 @@ for pin in data_pin_ids:
 #null byte.
 # The remaining bits are to trigger MIDI controls 0-6.
 def get_gpio():
-    result = 0
+    digital_pins = 0
     for c, pin_id in enumerate(data_pin_ids):
-        result |= GPIO.input(pin_id) << c
+        digital_pins |= GPIO.input(pin_id) << c
+
+    analog_pot = int(input()) # For now
+    result = (digital_pins << 8) | analog_pot #1 value
     return result
