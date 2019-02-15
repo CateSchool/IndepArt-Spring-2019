@@ -12,11 +12,12 @@ for pin in data_pin_ids:
 #null byte.
 # The remaining bits are to trigger MIDI controls 0-6.
 def get_gpio():
+    analog_pot = int(input()) # For now
+
     digital_pins = 0
     for c, pin_id in enumerate(data_pin_ids):
         digital_pins |= GPIO.input(pin_id) << c
 
-    analog_pot = int(input()) # For now
     result = (digital_pins << 8) | analog_pot #1 value
     print("get_gpio: ", bin(result))
     return result
