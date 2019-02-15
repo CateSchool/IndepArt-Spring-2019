@@ -18,4 +18,5 @@ def get_gpio():
 
     analog_pot = int(input()) # For now
     result = (digital_pins << 8) | analog_pot #1 value
+    print("get_gpio: ", bin(result))
     return result
