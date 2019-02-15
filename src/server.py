@@ -8,9 +8,11 @@ print("Server bound and listening @ %s:%s" % (server_sock.getsockname()))
 
 client_sock, address = server_sock.accept()
 while True:
-    raw = client_sock.recv(2)
-    if len(raw) == 0: break
-    print("Midi data recieved",  bin(int(raw.hex(), 16)))
+    raw = int.from_bytes(client_sock.recv(2), byteorder='little')
+    if raw == 0: break
+
+    readable = bin(raw)[2:]
+    print("Recieved: ", readable[:7], "|", readable[8:])
 
 print("Closing...")
 server_sock.close()

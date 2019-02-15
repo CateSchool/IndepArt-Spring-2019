@@ -15,7 +15,8 @@ print("Connected")
 
 while True:
     gpio = get_gpio()
-    print(bin(gpio >> 8), "|", bin(gpio & 0b11111111))
+    readable = bin(gpio)[2:]
+    print("Sending: ", gpio[:7], "|", gpio[8:])
     gpio = gpio.to_bytes(2, 'little')
     client_sock.sendall(gpio)
     time.sleep(0.05) #20ms delay is fine by me.
