@@ -17,8 +17,9 @@ def get_gpio():
     analog_pot = int(input()) # For now
 
     digital_pins = 0
-    for c, pin_id in enumerate(data_pin_ids):
-        digital_pins |= GPIO.input(pin_id) << len(data_pin_ids) - c
+    for pin_id in data_pin_ids:
+        digital_pins <<= 1
+        digital_pins |= GPIO.input(pin_id)
     digital_pins |= 0b1 << 7
 
     result = (digital_pins << 8) | analog_pot # PINS POT in that order
