@@ -1,4 +1,7 @@
 import socket
+from do_midi import do_midi
+
+print("\nCreating server...")
 
 server_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_sock.bind(("", 19079))
@@ -7,7 +10,7 @@ server_sock.listen(5)
 print("Server bound and listening @ %s:%s" % (server_sock.getsockname()))
 
 client_sock, address = server_sock.accept()
-print("Got client at", address)
+print("\nGot client at", address)
 while True:
     try:
         raw = int.from_bytes(client_sock.recv(2), byteorder='little')
@@ -17,6 +20,7 @@ while True:
         print("Recieved: {:0>8} | {:0>8}".format(readable[:8], readable[8:]))
 
     except KeyboardInterrupt:
-        print("Closing...")
-        server_sock.close()
+        break
 
+print("Closing...")
+server_sock.close()

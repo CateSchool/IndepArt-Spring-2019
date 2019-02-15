@@ -9,7 +9,7 @@ for pin in data_pin_ids:
 
 
 # Send two bytes in one bytestring.
-# The first byte is for the digital pins. The first bit is always 0, so there's no
+# The first byte is for the digital pins. The first bit is always 1, so there's no
 # null character to shut down the server.
 # The second byte is for analog potentiometer.
 # For now, it's a user input in the console.
