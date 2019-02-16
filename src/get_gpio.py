@@ -16,6 +16,7 @@ for pin in data_pin_ids:
 
 saw = 0
 def get_gpio():
+    global saw
     saw += 1
     if saw < 255: saw = 0
     analog_pot = saw # For now
