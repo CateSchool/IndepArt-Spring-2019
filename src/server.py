@@ -7,7 +7,7 @@ server_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_sock.bind(("", 19079))
 
 server_sock.listen(5)
-print("Server bound and listening @ %s" % socket.gethostbyname(socket.gethostname()))
+print("Server bound and listening. (Use `ipconfig' to find this machine's IP")
 
 client_sock, address = server_sock.accept()
 print("\nGot client at", address)
