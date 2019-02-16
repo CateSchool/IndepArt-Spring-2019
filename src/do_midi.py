@@ -35,7 +35,7 @@ def do_midi(raw):
 
     # digital message: either 0 or 127. Takes up channels 1-7 
     digital_msgs = [mido.Message('control_change', value=((digital >> bit) & 1) * 127,
-        channel=0, control=8-bit) for bit in range(7, -1, -1)]
+        channel=0, control=8-bit) for bit in range(7, 0, -1)]
 
     for msg in [analog_msg] + digital_msgs:
         outport.send(msg)
