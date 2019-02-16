@@ -18,6 +18,7 @@ while True:
 
         readable = bin(raw)[2:].rjust(16, '0')
         print("Recieved: {:0>8} | {:0>8}".format(readable[:8], readable[8:]))
+        do_midi(raw)
 
     except KeyboardInterrupt:
         print("Closing...")
