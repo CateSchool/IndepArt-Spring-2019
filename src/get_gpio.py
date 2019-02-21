@@ -31,7 +31,7 @@ print("Spidev intialized.")
 
 def get_gpio():
     # Read potentiometer
-    analog_pot = spi.readbytes(1)
+    analog_pot = spi.readbytes(1)[0]
 
     # Read pushbuttons
     digital_pins = 0
