@@ -19,7 +19,7 @@ while True:
     print("Sending: {:0>8} | {:0>8}".format(readable[:8], readable[8:]))
     gpio = gpio.to_bytes(2, 'little')
     client_sock.sendall(gpio)
-    time.sleep(0.1) #100ms delay is fine by me.
+    time.sleep(0.01) #10ms delay is fine by me.
 
 print("Finished")
 client_sock.close()
